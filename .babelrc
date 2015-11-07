@@ -1,0 +1,4 @@
+{
+  // Keep using Babel v5 until v6 isn't stable enough
+  //"presets": ["es2015"]
+}
