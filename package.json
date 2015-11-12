@@ -10,8 +10,7 @@
     "example": "./example"
   },
   "dependencies": {
-    "babel": "^5.8.29",
-    "knuth-shuffle": "^1.0.1"
+    "babel": "^5.8.29"
   },
   "devDependencies": {
     "babel-core": "^6.0.20",

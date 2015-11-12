@@ -10,3 +10,21 @@ An open-source JavaScript library for creating card games.
 The project is written in ECMAScript 6 and uses [ESDoc][] for documentation.
 
 [ESDoc]: https://esdoc.org
+
+## Getting started
+
+``` js
+// Initialize the array of players who can participate in a game's rounds
+let players = [
+  new Deckster.Player(0),
+  new Deckster.Player(1),
+  new Deckster.Player(2),
+  new Deckster.Player(3)
+];
+
+// Creates a new game instance which has a set of cards available to play with
+let game = Deckster.createGame();
+
+// Initiates a new round of the game, in which a talon gets shuffled, and cards can be dealt from it
+let round = game.createRound();
+```
