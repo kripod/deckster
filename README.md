@@ -25,6 +25,7 @@ let players = [
 // Creates a new game instance which has a set of cards available to play with
 let game = Deckster.createGame();
 
-// Initiates a new round of the game, in which a talon gets shuffled, and cards can be dealt from it
+// Initiates a new round of the game, in which a talon gets shuffled, and cards 
+// can be dealt from it
 let round = game.createRound();
 ```
