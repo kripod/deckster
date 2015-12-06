@@ -10,7 +10,7 @@
     "example": "./example"
   },
   "dependencies": {
-    "random-js": "^1.0.8"
+    "isaac": "0.0.5"
   },
   "devDependencies": {
     "babel-core": "^6.3.13",
