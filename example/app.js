@@ -9,7 +9,8 @@ let players = [
   new Deckster.Player(3)
 ];
 
-let game = Deckster.createGame();
+let deck = new Deckster.Decks.Standard52Card();
+let game = Deckster.createGame(deck);
 let round = game.createRound(players);
 
 round.deal(2);
@@ -20,3 +21,6 @@ for (let i = 0; i < players.length; i++) {
   console.log('\n');
   console.log(players[i]);
 }
+
+console.log(deck.getCardName(players[3].cards[0]));
+console.log(deck.getCardName(players[3].cards[0], false));
