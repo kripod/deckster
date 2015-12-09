@@ -10,7 +10,7 @@ let players = [
 ];
 
 let deck = new Deckster.Decks.Standard52Card();
-let game = Deckster.createGame(deck);
+let game = new Deckster.Game(deck);
 let round = game.createRound(players);
 
 round.deal(2);

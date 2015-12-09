@@ -1,8 +1,8 @@
-# deckster.js
+# Deckster
 
 [![Version (npm)](https://img.shields.io/npm/v/deckster.svg)](https://npmjs.com/package/deckster)
-[![Documentation Status](https://doc.esdoc.org/github.com/kripod/deckster.js/badge.svg)](https://doc.esdoc.org/github.com/kripod/deckster.js)
-[![Build Status](https://img.shields.io/travis/kripod/deckster.js/master.svg)](https://travis-ci.org/kripod/deckster.js)
+[![Documentation Status](https://doc.esdoc.org/github.com/DecksterJS/deckster/badge.svg)](https://doc.esdoc.org/github.com/DecksterJS/deckster)
+[![Build Status](https://img.shields.io/travis/DecksterJS/deckster/master.svg)](https://travis-ci.org/DecksterJS/deckster)
 [![Dependency Status](https://img.shields.io/versioneye/d/user/projects/563dcd194d415e001e0001bd.svg)](https://versioneye.com/user/projects/563dcd194d415e001e0001bd)
 
 An open-source JavaScript library for creating card games.
@@ -22,10 +22,13 @@ let players = [
   new Deckster.Player(3)
 ];
 
-// Creates a new game instance which has a set of cards available to play with
-let game = Deckster.createGame();
+// Initialize new instance of a standard playing card deck
+let deck = new Deckster.Decks.Standard52Card();
 
-// Initiates a new round of the game, in which a talon gets shuffled, and cards 
-// can be dealt from it
-let round = game.createRound();
+// Creates a new game instance which has a set of cards available to play with
+let game = new Deckster.Game(deck);
+
+// Initiates a new round of the game, in which the deck gets shuffled, and 
+// cards can be dealt from it
+let round = game.createRound(players);
 ```
