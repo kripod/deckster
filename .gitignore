@@ -1,6 +1,6 @@
 # Project-specific
 ## Generated resources
-bin/
+lib/
 esdoc/
 
 # Web development

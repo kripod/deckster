@@ -1,6 +1,6 @@
 /* eslint no-console: 0 */
 
-import Deckster from './../lib';
+import Deckster from './../src';
 
 let players = [
   new Deckster.Player(0),

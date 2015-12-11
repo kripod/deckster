@@ -1,5 +1,5 @@
 import test from 'tape';
-import Deckster from './../lib';
+import Deckster from './../src';
 
 let players = [
   new Deckster.Player(0),
@@ -14,7 +14,7 @@ let game = new Deckster.Game(deck);
 test('dealing cards to players', (t) => {
   let round = game.createRound(players);
   round.deal(2);
-  round.deal(2, players[0]);
+  round.deal(1, players[0]);
 
   t.equal(players[0].cards.length, 3);
   for (let i = players.length - 1; i > 0; i--) {
@@ -39,11 +39,11 @@ test('seeding card decks', (t) => {
     game.createRound(players, seed)
   ];
 
-  let cardsInDeck = rounds[0].cardsInDeck;
-  t.equal(rounds[1].cardsInDeck, cardsInDeck);
+  let cardsInDeck = rounds[0].cardsInDeck.length;
+  t.equal(rounds[1].cardsInDeck.length, cardsInDeck);
 
   for (let i = cardsInDeck - 1; i >= 0; i--) {
-    t.equal(rounds[0].cardsInDeck[i], rounds[1].cardsInDeck[i]);
+    t.equal(rounds[0].cardsInDeck[i].id, rounds[1].cardsInDeck[i].id);
   }
 
   t.end();
