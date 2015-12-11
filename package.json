@@ -20,15 +20,15 @@
     "coveralls": "^2.11.6",
     "esdoc": "^0.4.3",
     "eslint": "^1.10.3",
-    "exorcist": "^0.4.0",
+    "isparta": "^4.0.0",
+    "istanbul": "^0.4.1",
     "rimraf": "^2.4.4",
-    "tap-spec": "^4.1.1",
     "tape": "^4.2.2"
   },
   "scripts": {
-    "start": "cd example && node server.js",
-    "compile": "rimraf lib && mkdir lib && babel -d ./lib ./src",
-    "test": "npm run compile && cd tests && babel ./**/*.js | node | tap-spec",
+    "start": "babel-node ./example",
+    "compile": "rimraf lib && babel -d ./lib ./src",
+    "test": "rimraf coverage && babel-node node_modules/isparta/bin/isparta cover ./tests --report lcov --report html",
     "build-docs": "rimraf docs && mkdir docs && esdoc -c ./esdoc.json",
     "prepublish": "npm run compile"
   },

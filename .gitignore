@@ -1,6 +1,7 @@
 # Project-specific
 ## Generated resources
 lib/
+coverage/
 docs/
 
 # Web development

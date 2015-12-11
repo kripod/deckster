@@ -1,5 +1,5 @@
 import test from 'tape';
-import Deckster from './../lib/deckster';
+import Deckster from './../src';
 
 let players = [
   new Deckster.Player(0),
