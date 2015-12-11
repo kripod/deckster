@@ -1,7 +1,7 @@
 # Project-specific
 ## Generated resources
 lib/
-esdoc/
+docs/
 
 # Web development
 ## Package managers
