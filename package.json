@@ -27,8 +27,8 @@
   },
   "scripts": {
     "start": "babel-node ./example",
-    "compile": "rimraf lib && babel -d ./lib ./src",
-    "test": "rimraf coverage && babel-node node_modules/isparta/bin/isparta cover ./tests --report lcov --report html",
+    "compile": "rimraf lib && babel -d ./lib ./src -s",
+    "test": "rimraf coverage && babel-node ./node_modules/isparta/bin/isparta cover ./tests --report lcov --report html",
     "build-docs": "rimraf docs && mkdir docs && esdoc -c ./esdoc.json",
     "prepublish": "npm run compile"
   },

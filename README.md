@@ -2,6 +2,7 @@
 
 [![Version (npm)](https://img.shields.io/npm/v/deckster.svg)](https://npmjs.com/package/deckster)
 [![Documentation Status](https://doc.esdoc.org/github.com/DecksterJS/deckster/badge.svg)](https://doc.esdoc.org/github.com/DecksterJS/deckster)
+[![Coverage Status](https://img.shields.io/coveralls/DecksterJS/deckster/master.svg)](https://coveralls.io/github/DecksterJS/deckster)
 [![Build Status](https://img.shields.io/travis/DecksterJS/deckster/master.svg)](https://travis-ci.org/DecksterJS/deckster)
 [![Dependency Status](https://img.shields.io/versioneye/d/user/projects/563dcd194d415e001e0001bd.svg)](https://versioneye.com/user/projects/563dcd194d415e001e0001bd)
 
