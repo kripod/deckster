@@ -28,7 +28,7 @@
   "scripts": {
     "start": "cd example && node server.js",
     "compile": "rimraf lib && mkdir lib && babel -d ./lib ./src",
-    "test": "npm run compile && cd tests && babel ./**/*.js | node --coverage | tap-spec",
+    "test": "npm run compile && cd tests && babel ./**/*.js | node | tap-spec",
     "build-docs": "rimraf docs && mkdir docs && esdoc -c ./esdoc.json",
     "prepublish": "npm run compile"
   },
