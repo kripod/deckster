@@ -25,8 +25,8 @@ export default class Round {
    * Gets the cards shown on the table. These cards can be seen by every player in the round.
    * @type {Card[]}
    */
-  get cardsShownOnTable() {
-    return this._cardsShownOnTable;
+  get cardsOnTable() {
+    return this._cardsOnTable;
   }
 
   /**
@@ -39,14 +39,16 @@ export default class Round {
     this._ownerGame = ownerGame;
     this._players = players;
     this._cardsInDeck = [];
-    this._cardsShownOnTable = [];
+    this._cardsOnTable = [];
 
     // TODO: Add support for custom starting decks
     // Generate the starting deck
-    let cardTypes = this._ownerGame.deck.cardSuitTypes * this._ownerGame.deck.cardRankTypes;
-    for (let i = cardTypes - 1; i >= 0; i--) {
-      this.cardsInDeck.push(new Card(i, this._ownerGame, this));
+    let ownerDeck = ownerGame.deck;
+    for (let i = ownerDeck.cardTypes - 1; i >= 0; i--) {
+      this._cardsInDeck.push(new Card(i, ownerDeck, this));
     }
+
+    // Shuffle the deck based on the deck seed
     Utils.shuffleArray(this._cardsInDeck, deckSeed);
   }
 
@@ -63,9 +65,8 @@ export default class Round {
 
     players.forEach((player) => {
       for (let i = Math.min(amount, this._cardsInDeck.length); i > 0; i--) {
-        // Give the randomly drawn card to the player, and then remove it from the deck
-        player.cards.push(this._cardsInDeck[0]);
-        this._cardsInDeck.splice(0, 1);
+        // Remove the drawn card from the deck, and then give it to the player
+        player.cards.push(this._cardsInDeck.shift());
       }
     });
   }
@@ -75,10 +76,9 @@ export default class Round {
    * @param {number} amount The amount of cards which should be drawn.
    */
   drawToTable(amount = 1) {
-    // Put the randomly drawn card on the table, and then remove it from the deck
     for (let i = Math.min(amount, this._cardsInDeck.length); i > 0; i--) {
-      this._cardsShownOnTable.push(this._cardsInDeck[0]);
-      this._cardsInDeck.splice(0, 1);
+      // Remove the drawn card from the deck, and then put it on the table
+      this._cardsOnTable.push(this._cardsInDeck.shift());
     }
   }
 

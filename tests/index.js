@@ -28,7 +28,7 @@ test('drawing cards to the table', (t) => {
   let round = game.createRound(players);
   round.drawToTable(5);
 
-  t.equal(round.cardsShownOnTable.length, 5);
+  t.equal(round.cardsOnTable.length, 5);
   t.end();
 });
 

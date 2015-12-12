@@ -5,8 +5,9 @@
 
   // Configure glob patterns for excluding files and folders in searches
   "search.exclude": {
-    "**/bin": true,
     "**/node_modules": true,
-    "**/esdoc": true
+    "**/lib": true
+    "**/coverage": true
+    "**/docs": true
   }
 }

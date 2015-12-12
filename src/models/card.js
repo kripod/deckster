@@ -16,10 +16,10 @@ export default class Card {
    */
   get suit() {
     if (this._suit == null) {
-      // The card's suit can only be known by the specifications of the owner game
-      if (this._ownerGame == null) return null;
+      // The card's suit can only be known by the specifications of the owner deck
+      if (this._ownerDeck == null) return null;
 
-      this._suit = Math.floor(this._id / this._ownerGame.deck.cardRankTypes);
+      this._suit = Math.floor(this._id / this._ownerDeck.cardRankTypes);
     }
 
     return this._suit;
@@ -31,10 +31,10 @@ export default class Card {
    */
   get rank() {
     if (this._rank == null) {
-      // The card's rank can only be known by the specifications of the owner game
-      if (this._ownerGame == null) return null;
+      // The card's rank can only be known by the specifications of the owner deck
+      if (this._ownerDeck == null) return null;
 
-      this._rank = this._id % this._ownerGame.deck.cardRankTypes;
+      this._rank = this._id % this._ownerDeck.cardRankTypes;
     }
 
     return this._rank;
@@ -48,18 +48,18 @@ export default class Card {
     // The card's status can only be known by the specifications of the owner round
     if (this._ownerRound == null) return null;
 
-    return this._ownerRound.cardsShownOnTable.indexOf(this) >= 0;
+    return this._ownerRound.cardsOnTable.indexOf(this) >= 0;
   }
 
   /**
    * @private
    * @param {number} id
-   * @param {?Game} ownerGame
+   * @param {?Deck} ownerDeck
    * @param {?Round} ownerRound
    */
-  constructor(id, ownerGame = null, ownerRound = null) {
+  constructor(id, ownerDeck = null, ownerRound = null) {
     this._id = id;
-    this._ownerGame = ownerGame;
+    this._ownerDeck = ownerDeck;
     this._ownerRound = ownerRound;
   }
 }
