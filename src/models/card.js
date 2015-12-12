@@ -44,7 +44,7 @@ export default class Card {
    * Gets whether the card is shown on the table of its owner round.
    * @type {?boolean}
    */
-  get isShownOnTable() {
+  get isOnTable() {
     // The card's status can only be known by the specifications of the owner round
     if (this._ownerRound == null) return null;
 

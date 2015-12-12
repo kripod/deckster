@@ -14,9 +14,13 @@ export default class Utils {
   }
 
   static shuffleArray(array, seed = null) {
+    // Use a random seed if no seed was specified
+    if (seed == null) {
+      seed = new Date().toUTCString() + ' - ' + Math.random();
+    }
+
     // Prepare the ISAAC CSPRNG
-    isaac.reset();
-    isaac.seed(seed != null ? seed : new Date().toUTCString() + Math.random());
+    isaac.seed(seed);
 
     // Shuffle the array using the Fisher-Yates algorithm, utilizing a CSPRNG
     for (let i = array.length - 1; i > 0; i--) {
@@ -27,6 +31,9 @@ export default class Utils {
       array[i] = array[j];
       array[j] = temp;
     }
+
+    // Return the seed which was used
+    return seed;
   }
 
   static _realToInt(real, min, max) {

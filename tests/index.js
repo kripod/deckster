@@ -33,15 +33,21 @@ test('drawing cards to the table', (t) => {
 });
 
 test('seeding card decks', (t) => {
+  // Initialize 2 rounds with the same deck seed
   let seed = '<A really interesting random seed>';
   let rounds = [
     game.createRound(players, seed),
     game.createRound(players, seed)
   ];
 
+  // Check whether the deck seed has been memorized
+  t.equal(rounds[0].deckSeed, seed);
+
+  // Check whether the amount of cards is equal in each round's deck
   let cardsInDeck = rounds[0].cardsInDeck.length;
   t.equal(rounds[1].cardsInDeck.length, cardsInDeck);
 
+  // Check whether the cards in each round's deck are identical
   for (let i = cardsInDeck - 1; i >= 0; i--) {
     t.equal(rounds[0].cardsInDeck[i].id, rounds[1].cardsInDeck[i].id);
   }

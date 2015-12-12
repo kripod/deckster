@@ -14,6 +14,14 @@ export default class Round {
   }
 
   /**
+   * Gets the seed used for initially shuffling the deck.
+   * @type {(string|number|number[])}
+   */
+  get deckSeed() {
+    return this._deckSeed;
+  }
+
+  /**
    * Gets the cards in the deck, by order.
    * @type {Card[]}
    */
@@ -33,7 +41,7 @@ export default class Round {
    * @private
    * @param {Game} ownerGame
    * @param {Player[]} players
-   * @param {string} deckSeed
+   * @param {(string|number|number[])} deckSeed
    */
   constructor(ownerGame, players, deckSeed) {
     this._ownerGame = ownerGame;
@@ -49,7 +57,7 @@ export default class Round {
     }
 
     // Shuffle the deck based on the deck seed
-    Utils.shuffleArray(this._cardsInDeck, deckSeed);
+    this._deckSeed = Utils.shuffleArray(this._cardsInDeck, deckSeed);
   }
 
   /**

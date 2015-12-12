@@ -23,7 +23,7 @@ export default class Game {
   /**
    * Creates a new round with the players specified.
    * @param {Player[]} players The players who participate in the round.
-   * @param {string} deckSeed The seed used for initially shuffling the deck.
+   * @param {(string|number|number[])} deckSeed The seed used for initially shuffling the deck.
    * @returns {Round}
    */
   createRound(players, deckSeed = null) {

@@ -7,7 +7,11 @@ export default class Deck {
    * @type {number}
    */
   get cardTypes() {
-    return this._cardSuitTypes * this._cardRankTypes;
+    if (this._cardTypes == null) {
+      this._cardTypes = this._cardSuitTypes * this._cardRankTypes;
+    }
+
+    return this._cardTypes;
   }
 
   /**
