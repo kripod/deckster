@@ -1,14 +1,24 @@
 language: node_js
 node_js:
-  - stable
-  - "5.1"
-  - "5.0"
-  - "4.2"
-  - "4.1"
-  - "4.0"
-  - "0.12"
-  - "0.11"
-  - "0.10"
-
-after_success:
-  - if [[ "$TRAVIS_JOB_NUMBER" == *.1 ]]; then cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js; fi
+- stable
+- '5.1'
+- '5.0'
+- '4.2'
+- '4.1'
+- '4.0'
+- '0.12'
+- '0.11'
+- '0.10'
+script: npm run coveralls
+cache:
+  directories:
+  - node_modules
+deploy:
+  provider: npm
+  email: kripod@protonmail.com
+  api_key:
+    secure: WAB2RiAiTVZgUM5t0sdGo5FPPYKTY/oTZyTwKQErnhPoxu+F1EZthn0NNsaO/xx1q3IgsTuMix+fzMIzuggm8n97LeqOswtvS61GAdvZi7n2nqRUpRw/cLG7lfxQSq98l/ULSCWR+ZlWVoFnAadzrz/wzdH03oAbbtyVMRcHDiwWjJg2m/9bVflu97gl0oOgt68tZhOZIpxL/odKUz35QG2qv9I4U/fOSj36PT3gzYbExBR5r/+ddsV6Rc9W3fNKM8iB6wpnnhaCAANW+5pDn8nMHAQv/fC27BNi2q1cQYZf1h+jMzavB07NssFJPJXxjUhBNT7UEaDFuOGzb9SRLfDtDW+yQswmzkZR/5Y1elvFxKtDCxUv8ZYZzBnsv4hVhhjai2gHsqXT+rkX0w8enwN816EYTfGFdYoyO5IBRo/y1sVXSayQ3ExHRLvZ5zqwBy38zk/GHzicTDwLE/bC3C8WXfy9Wsv9mNGv3yYna2Xy/hbt36wiGPtwExd0nS6y49ONgYCk5zYAcN88RVlLMQvyKr4We3uw2KeGQGZD/vugDspPWT05tXuPg4f2SzyW4UStmpfscyIUJ1RKPFWYJDL55oy2SjBKKf6Ve2+KpDSbh5oaIRosFXBIb6qZho34xSuqw45h85c/LVIc9WGNfw9TosElFjNN9RzN/NQHeg0=
+  on:
+    tags: true
+    branch: master
+    repo: DecksterJS/deckster

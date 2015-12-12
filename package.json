@@ -1,6 +1,6 @@
 {
   "name": "deckster",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "description": "An open-source JavaScript library for creating card games.",
   "author": "Kristóf Poduszló <kripod@protonmail.com>",
   "license": "MIT",
@@ -28,8 +28,9 @@
   "scripts": {
     "start": "babel-node ./example",
     "compile": "rimraf lib && babel -d ./lib ./src -s",
-    "test": "rimraf coverage && babel-node ./node_modules/isparta/bin/isparta cover ./tests --report lcov --report html",
-    "build-docs": "rimraf docs && mkdir docs && esdoc -c ./esdoc.json",
+    "test": "rimraf coverage && babel-node ./node_modules/isparta/bin/isparta cover ./tests --report lcov",
+    "coveralls": "npm run test -s && coveralls < ./coverage/lcov.info",
+    "build-docs": "rimraf docs && mkdir docs && esdoc -c ./.esdoc.json",
     "prepublish": "npm run compile"
   },
   "repository": {

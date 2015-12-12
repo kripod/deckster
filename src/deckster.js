@@ -1,6 +1,5 @@
 import Card from './models/card';
 import Deck from './models/deck';
-import Decks from './models/decks';
 import Game from './models/game';
 import Player from './models/player';
 
@@ -20,13 +19,6 @@ export default class Deckster {
    */
   static get Deck() {
     return Deck;
-  }
-
-  /**
-   * @type {Decks}
-   */
-  static get Decks() {
-    return Decks;
   }
 
   /**

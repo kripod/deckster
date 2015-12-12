@@ -15,6 +15,9 @@ The project is written in ECMAScript 6 and uses [ESDoc][] for documentation.
 ## Getting started
 
 ``` js
+import Deckster from 'deckster';
+import Standard52CardDeck from 'deckster-deck-standard-52card';
+
 // Initialize the array of players who can participate in a game's rounds
 let players = [
   new Deckster.Player(0),
@@ -24,7 +27,7 @@ let players = [
 ];
 
 // Initialize new instance of a standard playing card deck
-let deck = new Deckster.Decks.Standard52Card();
+let deck = new Standard52CardDeck();
 
 // Creates a new game instance which has a set of cards available to play with
 let game = new Deckster.Game(deck);

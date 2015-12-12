@@ -8,7 +8,7 @@ let players = [
   new Deckster.Player(3)
 ];
 
-let deck = new Deckster.Decks.Standard52Card();
+let deck = new Deckster.Deck(4, 13);
 let game = new Deckster.Game(deck);
 
 test('dealing cards to players', (t) => {
